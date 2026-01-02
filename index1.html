@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SANYX.sa</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+:root{
+  --red:#ff1a1a;
+  --dark:#050505;
+  --card:#0f0f0f;
+  --muted:#b5b5b5;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Inter',sans-serif;
+  background:#000;
+  color:#fff;
+  scroll-behavior:smooth;
+}
+a{text-decoration:none;color:#fff}
+
+/* NAV */
+header{
+  position:sticky;top:0;z-index:999;
+  background:linear-gradient(90deg,#000,#7a0000);
+}
+nav{
+  max-width:1300px;margin:auto;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:18px 30px;
+}
+nav h1{color:var(--red);font-size:28px}
+nav ul{list-style:none;display:flex;gap:22px}
+nav a:hover{color:var(--red)}
+
+/* HERO */
+.hero{
+  min-height:90vh;display:flex;align-items:center;text-align:center;
+  background:radial-gradient(circle at top,#7a0000,#000);
+}
+.hero h1{font-size:64px;font-weight:800}
+.hero span{color:var(--red)}
+.hero p{max-width:900px;margin:24px auto;color:var(--muted)}
+.btns{display:flex;gap:20px;justify-content:center;margin-top:30px}
+.btn{padding:14px 30px;border-radius:12px;font-weight:600}
+.btn.red{background:var(--red);color:#000}
+.btn.dark{border:1px solid #333}
+
+/* SECTIONS */
+section{padding:90px 20px}
+.container{max-width:1200px;margin:auto}
+.title{text-align:center;margin-bottom:60px}
+.title h2{font-size:46px}
+.title span{color:var(--red)}
+.title p{color:var(--muted)}
+
+/* SERVICES */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+}
+.service-card{
+  background:var(--card);
+  padding:30px;border-radius:18px;
+  border:1px solid #1b1b1b;
+  transition:.4s;position:relative;
+}
+.service-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 40px rgba(255,0,0,.15);
+}
+.service-card i{
+  color:var(--red);font-size:26px;
+  position:absolute;top:24px;right:24px;
+}
+.service-card h3{margin-top:40px}
+
+/* INTRO */
+.intro-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:30px;
+}
+.intro-card{
+  background:var(--card);
+  padding:36px;border-radius:20px;
+  border:1px solid #1f1f1f;
+}
+.intro-card i{color:var(--red);font-size:26px;margin-bottom:18px}
+.intro-card p{color:var(--muted);line-height:1.7}
+
+/* PROCESS */
+.process{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:26px;
+}
+.step{
+  background:#080808;
+  padding:22px 28px;border-radius:40px;
+  border:1px solid var(--red);
+  text-align:center;transition:.4s;
+}
+.step span{color:var(--red);font-weight:800;margin-right:10px}
+.step:hover{background:var(--red);color:#000}
+.step:hover span{color:#000}
+
+/* PACKAGES */
+.packages{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+.price-card{
+  background:var(--card);
+  padding:36px;border-radius:22px;
+  border:1px solid #1f1f1f;
+  position:relative;
+}
+.price-card.popular{
+  border:2px solid var(--red);
+  transform:scale(1.05);
+}
+.price{font-size:34px;margin:20px 0}
+.price span{font-size:14px;color:var(--muted)}
+.price-card ul{list-style:none}
+.price-card li{margin:12px 0;color:var(--muted)}
+.badge{
+  position:absolute;top:-14px;right:20px;
+  background:var(--red);color:#000;
+  padding:6px 14px;border-radius:20px;
+  font-size:12px;font-weight:700;
+}
+
+/* TEAM */
+.team{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:30px;
+}
+.team-card{
+  background:linear-gradient(145deg,#0a0a0a,#000);
+  padding:30px;border-radius:22px;
+  border:1px solid #1f1f1f;
+}
+.team-card img{
+  width:100%;height:360px;
+  object-fit:cover;border-radius:16px;
+}
+.team-card h3{margin-top:20px}
+.team-card span{color:var(--red);font-size:14px}
+.team-card p{color:var(--muted);margin-top:14px;line-height:1.7}
+
+/* CONTACT */
+.contact{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+}
+.contact-box{
+  background:var(--card);
+  padding:30px;border-radius:20px;
+}
+.contact-box input,
+.contact-box textarea{
+  width:100%;margin:10px 0;
+  padding:12px;border-radius:10px;
+  border:none;outline:none;
+}
+.contact-box button{
+  padding:12px;border:none;
+  background:var(--red);color:#000;
+  border-radius:10px;font-weight:700;
+}
+
+/* FADE */
+.fade{opacity:0;transform:translateY(30px);transition:.8s}
+.show{opacity:1;transform:none}
+
+@media(max-width:768px){
+  .hero h1{font-size:42px}
+}
+/* ===== WHY CHOOSE ===== */
+.why-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+.why-card{
+  background:linear-gradient(160deg,#0a0a0a,#000);
+  border:1px solid #1c1c1c;
+  border-radius:26px;
+  padding:40px 34px;
+  transition:.4s;
+  position:relative;
+}
+.why-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 50px rgba(255,0,0,.18);
+}
+.why-icon{
+  width:54px;
+  height:54px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(255,0,0,.15);
+  color:var(--red);
+  font-size:22px;
+  margin-bottom:26px;
+}
+.why-card h3{
+  font-size:22px;
+  margin-bottom:14px;
+}
+.why-card p{
+  color:var(--muted);
+  line-height:1.7;
+}
+/* ===== PACKAGES ===== */
+.packages{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+  align-items:stretch;
+}
+
+.price-card{
+  background:linear-gradient(160deg,#0b0b0b,#000);
+  border:1px solid #1d1d1d;
+  border-radius:30px;
+  padding:44px 36px;
+  position:relative;
+  transition:.4s;
+}
+
+.price-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 60px rgba(255,0,0,.18);
+}
+
+.price-card h3{
+  font-size:26px;
+  margin-bottom:10px;
+}
+
+.price-card .tagline{
+  color:var(--muted);
+  margin-bottom:24px;
+}
+
+.price{
+  font-size:44px;
+  font-weight:800;
+  color:var(--red);
+  margin-bottom:30px;
+}
+
+.price span{
+  font-size:16px;
+  color:var(--muted);
+  font-weight:400;
+}
+
+.price-card ul{
+  list-style:none;
+  margin-top:20px;
+}
+
+.price-card li{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:14px;
+  color:#e5e5e5;
+}
+
+.price-card li::before{
+  content:"✔";
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:rgba(255,0,0,.18);
+  color:var(--red);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:12px;
+}
+
+/* ===== POPULAR ===== */
+.price-card.popular{
+  border:2px solid var(--red);
+  transform:scale(1.05);
+}
+
+.badge{
+  position:absolute;
+  top:-18px;
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--red);
+  color:#000;
+  padding:6px 18px;
+  border-radius:20px;
+  font-weight:700;
+  font-size:14px;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+<h1>SANYX.sa</h1>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#process">Process</a></li>
+<li><a href="#why">Why us</a></li>
+<li><a href="#packages">Packages</a></li>
+<li><a href="#team">Team</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</header>
+
+<!-- HERO -->
+<section class="hero fade" id="home">
+<div class="container">
+<h1>Grow Your Brand with <span>SANYX</span></h1>
+<p>Creative Social Media & Digital Marketing Solutions from Siddipet, Telangana</p>
+<div class="btns">
+<a class="btn red">Explore Services</a>
+<a class="btn dark">Contact Us</a>
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="fade">
+<div class="container">
+<div class="title"><h2>What <span>SANYX</span> Does</h2></div>
+<div class="services">
+<div class="service-card"><i class="fa-solid fa-bullhorn"></i><h3>Ads for Meta & Google</h3></div>
+<div class="service-card"><i class="fa-solid fa-video"></i><h3>Video Editing</h3></div>
+<div class="service-card"><i class="fa-solid fa-image"></i><h3>Posters</h3></div>
+<div class="service-card"><i class="fa-solid fa-camera"></i><h3>Videography</h3></div>
+<div class="service-card"><i class="fa-solid fa-globe"></i><h3>Websites</h3></div>
+<div class="service-card"><i class="fa-solid fa-chart-line"></i><h3>Business Growth</h3></div>
+</div>
+</div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="fade">
+<div class="container">
+<div class="title"><h2>Process of <span>SANYX</span></h2></div>
+<div class="process">
+<div class="step"><span>01</span> Client Info</div>
+<div class="step"><span>02</span> Strategy</div>
+<div class="step"><span>03</span> Clarity</div>
+<div class="step"><span>04</span> Shooting</div>
+<div class="step"><span>05</span> Editing</div>
+<div class="step"><span>06</span> Posting & Ads</div>
+</div>
+</div>
+</section>
+<!--Why -->
+<section id="why" class="fade">
+  <div class="container">
+    <div class="title">
+      <h2>Why Choose <span>SANYX</span>?</h2>
+      <p>Why choose us among all other companies?</p>
+    </div>
+
+    <div class="why-grid">
+
+      <div class="why-card">
+        <div class="why-icon">
+          <i class="fa-solid fa-dollar-sign"></i>
+        </div>
+        <h3>Affordable Prices</h3>
+        <p>
+          Premium-quality content at affordable prices, making professional
+          branding accessible without compromising on luxury.
+        </p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">
+          <i class="fa-solid fa-clock"></i>
+        </div>
+        <h3>On-Time Delivery</h3>
+        <p>
+          We understand the value of time and always ensure on-time content
+          delivery, keeping your social media consistent.
+        </p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">
+          <i class="fa-solid fa-location-dot"></i>
+        </div>
+        <h3>Local Market Understanding</h3>
+        <p>
+          Strong understanding of the local market with trend-focused strategies
+          tailored for Telangana businesses.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- Packages -->
+<section id="packages" class="fade">
+  <div class="container">
+    <div class="title">
+      <h2>Packages of <span>SANYX</span></h2>
+      <p>Choose the perfect plan for your brand's growth</p>
+    </div>
+
+    <div class="packages">
+
+      <!-- ESSENTIAL -->
+      <div class="price-card">
+        <h3>SANYX Essential</h3>
+        <p class="tagline">Best for shops, salons, cafes, local services</p>
+        <div class="price">₹10,999 <span>/month</span></div>
+        <ul>
+          <li>Instagram Account Handling</li>
+          <li>6 Posters / Month</li>
+          <li>5 Reels / Month</li>
+          <li>Captions + Local Hashtags</li>
+          <li>Basic Brand Look & Consistency</li>
+          <li>Monthly Planner</li>
+        </ul>
+      </div>
+
+      <!-- ELITE -->
+      <div class="price-card popular">
+        <div class="badge">⭐ Most Popular</div>
+        <h3>SANYX Elite</h3>
+        <p class="tagline">For growing brands & showrooms</p>
+        <div class="price">₹14,999 <span>/month</span></div>
+        <ul>
+          <li>Full Instagram Management</li>
+          <li>12 Posters / Month</li>
+          <li>10 Reels / Month</li>
+          <li>Poster Designs & Brand Creatives</li>
+          <li>Trend-Based Reel Editing</li>
+          <li>Engagement & Growth Strategy</li>
+        </ul>
+      </div>
+
+      <!-- SIGNATURE -->
+      <div class="price-card">
+        <h3>SANYX Signature</h3>
+        <p class="tagline">For high-end businesses & serious growth</p>
+        <div class="price">₹19,999 <span>/month</span></div>
+        <ul>
+          <li>Complete Brand Handling</li>
+          <li>20 Posters / Month</li>
+          <li>16 High-Quality Reels / Month</li>
+          <li>Advanced Reel Effects & Storytelling</li>
+          <li>Brand Positioning Strategy</li>
+          <li>Analytics Report</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- TEAM -->
+<section id="team" class="fade">
+<div class="container">
+<div class="title"><h2>Persons Behind <span>SANYX</span></h2></div>
+<div class="team">
+<div class="team-card">
+<img src="hemanth.jpg.jpeg">
+<h3>Hemanth</h3>
+<span>Creative Lead & Partner</span>
+<p>Hemanth is the core creative force at SANYX and one of our valued partners.
+          With a strong passion for editing, he skillfully handles video editing,
+          reel creation, and poster design—bringing ideas to life with creativity
+          and precision. Beyond editing, Hemanth actively approaches clients and
+          takes complete responsibility for the entire process—from video shooting
+          to final edits and visuals. His dedication and creative mindset make him
+          a strong pillar of SANYX.</p>
+</div>
+<div class="team-card">
+<img src="saiteja.jpg.jpeg">
+<h3>Sai Teja</h3>
+<span>Technical & Growth Lead</span>
+<p>Sai Teja is a key partner at SANYX, driving the technical and growth side
+          of the brand. He expertly manages Meta ads, Instagram handling, website
+          development, and automation. Known for his intelligence and innovative
+          mindset, Sai Teja uses AI tools with precision to optimize performance,
+          improve reach, and help businesses scale online. His growth-focused vision
+          makes him an essential strength of the SANYX team.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="fade">
+<div class="container">
+<div class="title"><h2>Contact <span>SANYX</span></h2></div>
+<div class="contact">
+<div class="contact-box">
+<p>📞 +91 8520863856<br>📞 +91 6281477583<br>📧 sanyxsa11@gmail.com<br>📍 Siddipet, Telangana</p>
+</div>
+<form 
+  action="https://formsubmit.co/sanyxsa11@gmail.com" 
+  method="POST"
+  class="contact-box"
+>
+  <input type="text" name="name" placeholder="Your Name" required>
+
+  <input type="email" name="email" placeholder="Your Email" required>
+
+  <textarea name="message" placeholder="Your Message" required></textarea>
+
+  <!-- REQUIRED HIDDEN FIELDS -->
+  <input type="hidden" name="_subject" value="New Message from SANYX Website">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
+
+  <button type="submit">Send Message</button>
+</form>
+
+
+<script>
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')})
+},{threshold:.2});
+document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>
